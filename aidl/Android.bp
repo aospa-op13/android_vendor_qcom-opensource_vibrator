@@ -5,7 +5,7 @@ cc_library_shared {
     name: "vendor.qti.hardware.vibrator.impl",
     vendor: true,
     cflags: Common_CFlags + select(soong_config_variable("qti_vibrator", "use_libpalclient"), {
-        "true": ["-DUSE_LIBPALCLIENT"],
+        true: ["-DUSE_LIBPALCLIENT"],
         default: [],
     }),
     srcs: [
@@ -20,7 +20,7 @@ cc_library_shared {
         "vendor.qti.hardware.vibratorOL.impl",
         "vendor.qti.hardware.vibratorSel.impl",
     ] + select(soong_config_variable("qti_vibrator", "use_libpalclient"), {
-        "true": ["vendor.qti.hardware.vibratorCL.impl"],
+        true: ["vendor.qti.hardware.vibratorCL.impl"],
         default: [],
     }),
     export_include_dirs: ["include"],
